@@ -10,36 +10,62 @@
 		//EXERCISE 1
 		//1. Ask the user for their age.
 
-		const age = prompt("What is your age?");
+		const years = prompt("What is your age?");
 		
 		//2. Store the answer and convert their age into seconds.
+		const seconds = 60;
+		const minutes = 60;
+		const hour = 24;
+		const day = 30;
+		const month = 12;
+		const ageInSeconds = seconds * minutes * hour * day * month * years;
 		//3. Log into the console their age in seconds.
+		console.log(ageInSeconds);
 		//4. Try concatenating the answer into a sentence: Your age in seconds is --.
-
+		console.log(`Your age in seconds is: ${ageInSeconds}`);
 
 		//EXERCISE 2
 		//1. Create 3 variables that asks the user for three numbers.
-		//2. Use a function to find the minimum of the three.
-		//3. Log the answer into the console using the sentence: The maximum number is --.
 
+		//2. Use a function to find the minimum of the three.
+		function findMaxMin(){
+			const num1 = parseInt(prompt("Enter number 1: "));
+			const num2 = parseInt(prompt("Enter number 2: "));
+			const num3 = parseInt(prompt("Enter number 3: "));
+			console.log("The minimum number is: " + Math.min(num1, num2, num3));
+		
+
+		//3. Log the answer into the console using the sentence: The maximum number is --.
+			console.log(`The maximum number is ${Math.max(num1, num2, num3)}`);
+		}
 
 		// EXERCISE 3
 		// Write some code that finds the youngest person out of three ages.
+
+		function findMaxAge(){
+			const num1 = parseInt(prompt("Age of person 1: "));
+			const num2 = parseInt(prompt("Age of person 2: "));
+			const num3 = parseInt(prompt("Age of person 3: "));
+		
 		// Log into the console the sentence: The youngest person is -- years old.
-
-
+			console.log(`The youngest person is ${Math.min(num1, num2, num3)} years old`);
+		}
 
 		// EXERCISE 4
 		// Write some code that returns a random number between 1 and 100.
+			const random = Math.floor(Math.random()*100) + 1;
 		// Log into the console the sentence: Your random number is --.
+			console.log(`Your random number is ${random}`);
 		// Bonus points for returning a whole number (no decimals).
     	// Hint: Look into Math.random and Math.round
 
-
-
 		// EXERCISE 5
 		// Write some code that adds sales tax to a price.
+			const price = prompt("Price of item is: ");
+			const taxRate = 1.08;
 		// Log into the console the sentence: "The total price with tax is $--."
+			const total = price * taxRate;
+			console.log(`The total price with tax is $ ${total.toFixed(2)}.`)
 		// Bonus points if you can get it to show 2 decimals. (Google it!)
 
 
