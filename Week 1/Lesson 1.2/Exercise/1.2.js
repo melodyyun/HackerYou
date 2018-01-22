@@ -1,16 +1,21 @@
-
-// Exercises: Complete the following exercises in pairs.
-
-// Level 1 Log into the console the numbers between 5 and 12.
-for(let i = 5; i <= 12; i++){
-	console.log(i);
+function quiz(){
+	const answer = prompt("Is a poodle a dog? Yes or No").toLowerCase();
+	if (answer === "yes"|| answer ==="Yes"){
+		console.log("Great job you got it!");
+	}else{
+		console.log("Oh no you got it wrong");
+	}
 }
 
-// Level 2. Log into the console the numbers between 1 and 10 in reverse (i.e. starting with 10). The output should look something like this:
-for(let i = 1; i<=10; i++){
-	console.log(i);
+function rockPaperScissors(){
+	const user = prompt("Rock paper or scissors?").toLowerCase();
+	if (user === "rock"){
+		alert("It's a tie")
+	}else if (user === "paper"){
+		alert("You win!");
+	}else if (user === "scissors"){
+		alert("You lose!");
+	}else{
+		alert("Please enter rock paper or scissors")
+	}
 }
-
-
-
-

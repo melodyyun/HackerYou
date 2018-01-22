@@ -31,12 +31,11 @@ function ageInSeconds(){
 
 // 3. How old are you if you are 1 million seconds old?
 
-function oneMillionSeconds(){
+function oneMillionSeconds(sec){
 	//establish variables
-	const seconds = 1000000;
 
 	//calculate age of 1 million seconds
-	const age = seconds/ minutes / hours / days ;
+	const age = sec / minutes / hours / days ;
 
 	//prints answer to console
 	console.log(`You're ${age} days old`);
