@@ -7,12 +7,25 @@
 <body>
     <script>
         // create a Tip calcuator function that takes in three things: 1) meal price, 2) Tax Rate 3) Tip Rate
-        // It should return a value which you can console.log.
-        // Have the function default to 13% tax and 15% tip
+        const format = (number) => {
+            return number.toLocaleString('ja-JP', {style: 'currency', currency: 'USD'});
+        }
+
+        const tip = (mealPrice, taxRate = 0.13, tipRate = 0.15) =>{
+
+            total = mealPrice + mealPrice * taxRate + mealPrice * tipRate;
+            // It should return a value which you can console.log.
+            console.log(`Your meal was ${format(mealPrice)}, the tax rate is ${taxRate}%, the tip rate is ${tipRate}%, and the total cost of your meal is ${format(total)}.`);
+            return total;
+            // Have the function default to 13% tax and 15% tip
+        }
+
+        tip(20);
 
 
         // eg: let total = restaurantBill(100,0.13,0.15);
         // console.log(`Your total bill is $${total}`);
+        //console.log(number.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }));
 
         // BONUS: Make the function return a string formatted $x.xx
         

@@ -13,29 +13,57 @@
     const charIsVowel = letter =>{
       letter = letter.toLowerCase();
       if(letter==="a"||letter==="e" || letter==="i" || letter ==="o" || letter==="u"){
-        console.log("This letter is a vowel");
         return true;
       }else{
-        console.log("This letter is not a vowel");
         return false;
       }
     }
 
 
     // once done, create seperate if statements for the following and log "yes it is a vowel / no it isn't a vowel"
+    // if(charIsVowel === true){
+    //   console.log("This letter is a vowel");
+    // }else{
+    //   console.log("This letter is not a vowel");
+    // }
 
     // Check if capital A is a vowel
+
+    if (charIsVowel("A")){
+      console.log("A is a vowel");
+    }else{
+      console.log("A is not a vowel");
+    }
 
 
     // check if c isn't s vowel (HINT: Remember opposites with !)
     
+    if (!charIsVowel("C")){
+      console.log("C is not a vowel");
+    }else{
+      console.log("C is a vowel");
+    }
 
     // check if lowercase e AND uppercase O is a vowel
-
+    if (charIsVowel("e") && charIsVowel("O")){
+     console.log("e and O are both vowels");
+    }else{
+      console.log("e and O are not both vowels");
+    }
 
     // check if either x or u is a vowel
+    if (charIsVowel("x") && charIsVowel("u")){
+     console.log("x and u are both vowels");
+    }else{
+      console.log("x and u are not both vowels");
+    }
 
     // check that h isn't a vowel and e is a vowel
+    if (!charIsVowel("h") && charIsVowel("e")){
+     console.log("h is not a vowel and e is a vowel");
+    }else{
+      console.log("either h is a vowel or e is not a vowel");
+    }
 
   </script>
 
