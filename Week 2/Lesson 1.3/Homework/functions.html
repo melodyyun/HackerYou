@@ -43,15 +43,21 @@
 
       // 5. Write a function with one parameter, `whatsForDinner(meal)`, which alerts the name of the meal passed to it. Call your function three times with a different meal argument each time.
 
-      const whatsForDinner = meal => alert(`Dinner will be ${meal}`);
+      const whatsForDinner = meal => {
+        alert(`Dinner will be ${meal}`);
+        return meal;}
+
       whatsForDinner("Pizza");
+      console.log("Dinner will be " + whatsForDinner("sushi"))
 
 
       // 6. Write a function `multiply(n1, n2)` that returns the value of n1 and n2 multiplied together. *Hint:* We use the `*` character to denote multiplication in JavaScript. Make sure you test to see that your function does what you expect.
       const multiply = (n1, n2) => {
               return n1 * n2;
       }
-      console.log(multiply(2, 2));
+
+      const result = multiply(4, 2);
+      console.log(result);
 
       // 7. Write a function `greaterThanThree(n)` which logs "Yes" to the console if a n is greater than three. *Hint:* You will need to use the `>` comparrison operator and a conditional statement inside your function.
       const greaterThanThree = n =>{

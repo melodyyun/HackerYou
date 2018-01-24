@@ -11,7 +11,18 @@
         // 1. Find out your users name and figure out what time of day it is and then greet your user with the appropriate greeting, "Good morning, good afternoon, or good evening + name". 
         // Hot tip: look at Date() and getHours()
 
+        const greet = (firstName, lastName) => {
+            if ( 5 < getHours() && getHours() >= 11){
+                console.log(`"Good morning, ${firstName} ${lastName}.`);
+            }else if (getHours() > 11 && getHours() >= 11){
+                console.log(`"Good afternoon, ${firstName} ${lastName}.`);
+            }else{
+                console.log(`"Good evening, ${firstName} ${lastName}.`);
+            }
 
+        }
+
+        greet("Melody", "Chen");
 
         // 2. Age check before liquor website
         // check which province your user is in, then ask for their age. In Quebec, Manitoba, and Alberta the drinking age is 18, and everywhere else in Canada is 19.
