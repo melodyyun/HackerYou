@@ -14,7 +14,7 @@ function add(num1, num2, num3){
 	return num1 + num2 + num3;
 }
 
-const sum = add(5, 5, 5);
+const sum = add(15, 5, 5);
 console.log(`Sum is ${sum}`);
 
 //add 4 numbers without changing the previous function

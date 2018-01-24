@@ -13,7 +13,7 @@
 
       // 1. The following function isn't printing anything to the console. Can you spot the syntax error? Be sure to check your console for errors.
 
-      function iLoveCoffee{
+      function iLoveCoffee(){
         console.log("Coffee is delicious.");
       }
       iLoveCoffee();
@@ -24,26 +24,43 @@
       function iLovePizza(){
         console.log("Pizza is my favourite food!");
       }
+      iLovePizza();
 
       // 3. Write a function `singMeASong()` that logs the text "Hey, I just met you, And this is crazy,But here's my number, So call me, maybe!" to the console.
-
+      function singMeASong(){
+        console.log("Hey, I just met you, And this is crazy,But here's my number, So call me, maybe!");
+      }
 
       // 4. Change this `iReallyLovePizza` function to accept a single `topping` argument, then log the argument to the console.
 
-      function iReallyLovePizza(){
+      function iReallyLovePizza(topping){
         console.log("I love pizza!");
-        console.log("And my favourite topping is...");
+        console.log("And my favourite topping is..." + topping);
         //log your favourite topping to the console here
       }
+      iReallyLovePizza("grilled chicken");
 
 
       // 5. Write a function with one parameter, `whatsForDinner(meal)`, which alerts the name of the meal passed to it. Call your function three times with a different meal argument each time.
 
+      const whatsForDinner = meal => alert(`Dinner will be ${meal}`);
+      whatsForDinner("Pizza");
+
 
       // 6. Write a function `multiply(n1, n2)` that returns the value of n1 and n2 multiplied together. *Hint:* We use the `*` character to denote multiplication in JavaScript. Make sure you test to see that your function does what you expect.
-
+      const multiply = (n1, n2) => {
+              return n1 * n2;
+      }
+      console.log(multiply(2, 2));
 
       // 7. Write a function `greaterThanThree(n)` which logs "Yes" to the console if a n is greater than three. *Hint:* You will need to use the `>` comparrison operator and a conditional statement inside your function.
+      const greaterThanThree = n =>{
+        if (n>3){
+          console.log("Your number is greater than 3");
+        }else{
+          console.log("Your number is less than 3");
+        }
+      }
 
 
   </script>
