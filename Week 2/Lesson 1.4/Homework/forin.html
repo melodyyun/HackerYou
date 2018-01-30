@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Exercises</title>
+</head>
+
+<body>
+    <script>
+        //object
+        const farm = {
+            //name: value, --> this whole line is a property
+            type: 'crop',
+            name: 'Sweet Gardens',
+            hectares: 300,
+            employees: 3,
+            owner: 2,
+            barnCats: 14,
+            location: {
+                province: 'Ontario',
+                city: 'Cambridge',
+                postalCode: 'N1R5S2'
+            },
+            cropRotation: {
+                field1: {
+                    crop: 'Winter Wheat',
+                    harvest: 'June',
+                    lastRotation: '2017'
+                },
+                field2: {
+                    crop: 'Corn',
+                    harvest: 'September',
+                    lastRotation: '2016',
+                },
+                field3: {
+                    crop: null,
+                    harvest: null,
+                    lastRotation: '2018'
+                }
+            }
+        }
+
+        // Level 1:
+        // using the object above console log the following sentence:
+        //`Sweet Gardens is proud to have 300 hectares full of Winter Wheat and Corn this year! Stop by Cambridge, Ontario to visit our 14 barn cats and one of our 3 employees would be glad to help you!`
+        console.log(`${farm.name} is proud to have ${farm.hectares} hectares full of ${farm.cropRotation.field1.crop} and ${farm.cropRotation.field2.crop} this year! Stop by ${farm.location.city}, ${farm.location.province} to visit our ${farm.barnCats} barn cats and one of our ${farm.employees} employees would be glad to help you!`);
+
+        // Level 2:
+        // iterate through the farm object, if the value is a number, then console.log the key and value pairs example: `There are 2 owner(s)`
+
+        for (let farmInfo in farm){
+            if (Number.isInteger(farm[farmInfo])){
+                console.log(`There are ${farm[farmInfo]} ${farmInfo}(s).`);
+            }
+        }
+
+        // Level 3:
+        // iterate through the farm object, and if there is a nested object, then iterate through that as well. You should console log each value in all objects
+
+        console.log("Farm");
+
+        for (let farmInfo in farm){
+            if(typeof farm[farmInfo] === "object"){
+                const nestedObjects = farm[farmInfo];
+                for (let objects in nestedObjects){
+                    if (typeof nestedObjects[objects] === "object") {
+                        const twiceNestedObjects = nestedObjects[objects];
+                        for (let moreNestedObjects in twiceNestedObjects){
+                            console.log(twiceNestedObjects[moreNestedObjects]);
+                        }
+                    } else {
+                        console.log(nestedObjects[objects]);
+                    }
+                }
+            }else{
+                console.log(farm[farmInfo]);
+            }
+        }
+
+        for(let objects in farm){
+            if(typeof farm[objects]==="objects"){
+                const farmTwo = farm[objects];
+                for(let objectsLVLTwo in farmTwo){
+                    if(typeof farmTwo[objectsLVLTwo] === "object"){
+                        const farmThree = farmTwo[objectsLVLTwo];
+                        for(let objectsLVLThree in farmThree){
+                            console.log(farmThree[objectsLVLThree]);
+                        }
+                    }else{
+                        console.log(farmTwo[objectsLVLThree]);
+                    }
+                }
+            }else{
+                console.log(farmTwo[objects]);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

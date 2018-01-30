@@ -13,15 +13,20 @@
 
         const tip = (mealPrice, taxRate = 0.13, tipRate = 0.15) =>{
 
-            total = mealPrice + mealPrice * taxRate + mealPrice * tipRate;
+            total = mealPrice + (mealPrice * taxRate) + (mealPrice * tipRate);
             // It should return a value which you can console.log.
             console.log(`Your meal was ${format(mealPrice)}, the tax rate is ${taxRate}%, the tip rate is ${tipRate}%, and the total cost of your meal is ${format(total)}.`);
             return total;
+
+            //total.toFixed(2);
+            // this also gives 2 decimal places
+            
             // Have the function default to 13% tax and 15% tip
         }
 
         tip(20);
 
+        //console.log(tip(100, 0.13, 0.18));
 
         // eg: let total = restaurantBill(100,0.13,0.15);
         // console.log(`Your total bill is $${total}`);
