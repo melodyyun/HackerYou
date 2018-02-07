@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Times</title>
+</head>
+<body>
+  <script>
+    // here is a list of timecodes from some youtube videos:
+    const times =  ["5:17", "8:22", "3:34", "5:23", "7:12", "7:24", "6:46", "4:45", "4:40", "7:58", "11:51", "9:13", "5:50", "5:52", "5:49", "8:57", "11:29", "3:07", "5:59", "3:31"];
+
+    // using reduce, calculate to total hours, minutes and seconds
+    
+    const totalTime = times.reduce((total, time)=> {
+      const minutesToSeconds = (parseInt(time.split(":")[0])) * 60;
+      const seconds = parseInt(time.split(":")[1]);
+      // console.log(minutesToSeconds);
+      // console.log(seconds);
+      const totalSeconds = minutesToSeconds + seconds;
+      return parseInt(total + totalSeconds);
+    })
+
+    const formatTime=(sec)=>{
+      //change seconds to minutes
+      const hours = Math.floor(sec/3600);
+      // console.log(hours);
+      //change minutes to hours
+      const minutes = Math.floor((sec - (hours * 3600 ))/60);
+      // console.log(minutes);
+      const seconds = sec - (hours * 3600) - (minutes * 60);
+      // console.log(seconds);
+      return (`Total time is: ${hours}:${minutes}:${seconds}`);
+    }
+
+    const finalTime = formatTime(totalTime);
+    // Tip: You'll have to _split_ the strings into minutes and seconds, and then tally the total minutes
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functional Programming Exercises</title>
+</head>
+<body>
+    <script>
+        // Map:
+        // Let's take this array of dog's ages in human years, and create a new array of ages in dog years that shows each value multipled by 7
+        const ages = [2, 1.5, 5, 9, 4, 5];
+
+        const dogAges = ages.map((age) => {
+            return age * 7;
+        });
+
+        console.log(dogAges);
+
+
+        // Let's take an array of strings and create a new array of the same strings, but all uppercase
+        const names = ['Sam', 'Jo', 'Chris'];
+
+        const yelledNames = names.map((name) => {
+            return name.toUpperCase();
+        });
+
+        console.log(yelledNames);
+
+
+        // Filter:
+        // Create a new array with users who are older than 19 years old
+        const users = [
+            { name: 'Sam', age: 16 },
+            { name: 'Jo', age: 25 },
+            { name: 'Chris', age: 90 },
+            { name: 'Jules', age: 9 }
+        ];
+
+        const ofAge = users.filter((value) => {
+            return value.age >= 19;
+        });
+
+        console.log(ofAge);
+
+
+        // Create a new array with only titles longer than 8 characters
+        const books = ['War and Peace', 'Moby Dick', 'Hamlet', 'The Odyssey', 'The Great Gatsby'];
+
+        const longTitle = books.filter((title) => {
+            return title.length >= 8;
+        });
+
+        console.log(longTitle);
+
+
+        // Reduce:
+        // Return the largest number
+        const nums = [2, 4, 6, 8];
+
+        const longest = nums.reduce((largest, next) => {
+            if (largest >= next) {
+                return largest;
+            }  else {
+                return next;
+            }
+        }); 
+
+        console.log(longest);
+
+
+    </script>
+</body>
+</html>
