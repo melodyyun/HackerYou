@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Warrior Object</h1>
+    <h1>Student Object</h1>
+    <script>    
+        // const counter = {
+        //     count:0,
+        //     increment: function () {
+        //         // counter.count = counter.count + 1;
+        //         // console.log(this);
+        //         this.count ++;
+        //     }
+        // }
+
+        // //when writing a method do not use arrow function
+
+        // console.log(counter.count);
+        // counter.increment();
+        // console.log(counter.count);
+
+        const warrior = {
+            equipment : ["sword", "shield"],
+            energy : 100,
+            location : {
+                x : 0,
+                y: 0,
+            },
+            walk: function (moveX, moveY) {
+                this.location.x = this.location.x + moveX;
+                this.location.y = this.location.y + moveY;
+            },
+            strike: function (damage) {
+                this.energy = this.energy - damage;
+            },
+            pickUpEquipment : function (newEquipment){
+                this.equipment.push(newEquipment);
+            }
+        }
+
+        const student = {
+            equipment : ["pencil", "eraser", "ruler", "scissors"],
+            energy: 100,
+            grades: 100,
+            uniform : {
+                top : "White Shirt",
+                bottom : "Black pants",
+                shoes : "Black Shoes",
+            },
+            food: function (calories){
+                potentialEnergy = Math.floor(calories/10);
+                if((this.energy + potentialEnergy) < 100){
+                    this.energy += potentialEnergy;
+                    console.log(`Your energy is now: ${this.energy}`);
+                }else{
+                    this.energy = 100;
+                    console.log(`Your energy is now: ${this.energy}`);
+                }
+            },
+            pickUpEquipment: function (newEquipment) {
+                this.equipment.push(newEquipment);
+                console.log(`You now have: ${this.equipment}, in your inventory`);
+            },
+            changeUniform: function (newTop = 'top', newBottom = 'bottom', newShoes = 'shoes') {
+                this.uniform.top = newTop;
+                this.uniform.bottom = newBottom;
+                this.uniform.shoes = newShoes;
+                console.log(this.uniform);
+            },
+            study: function (minutesStudied) {
+                hoursStudied = minutesStudied/60 ;
+                gradesIncrease = hoursStudied * 5;
+                energyDecrease = hoursStudied * 2;
+
+                const changeGrades = () =>{
+                    this.grades += gradesIncrease;
+                    console.log(`Your grades are now: ${this.grades}`)
+                }
+
+                const changeEnergy = () =>{
+                    if ((this.energy - energyDecrease) < 0) {
+                       this.energy = 0;
+                        console.log(`Your energy is now: ${this.energy}`);
+                        //penalty: if you're energy reaches 0 grades decrease by 10
+                        this.grades -= 10;
+                        console.log(`Your grades are now: ${this.grades}`);
+                    } else {
+                        this.energy -= energyDecrease;
+                        console.log(`Your energy is now: ${this.energy}`);
+                    }
+                    
+                }
+
+                if((this.grades + gradesIncrease)<100){
+                    changeGrades();
+                    changeEnergy();
+                }else{
+                    this.grades = 100;
+                    console.log(`Your grades are now: ${this.grades}`);
+                    changeEnergy();
+                }
+
+                
+                if(this.energy<0){
+                    this.grades = this.grades - 10;
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
