@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors!</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="u-alignCenter">
+      <h1 class='title'>Rock, Paper, Scissors</h1>
+      <h2 class='subtitle'>Try your abilities agains the computer!</h2>
+      <h5 class='cta'>What will your pick be?</h5>
+    </div>
+    <div class="option-wrapper">
+      <div class='option option-rock'>
+        <img class='option-img' src="imgs/rock.svg" alt="Rock">
+      </div>
+      <div class='option option-paper'>
+        <img class='option-img' src="imgs/paper.svg" alt="Paper">
+      </div>
+      <div class='option option-scissors'>
+        <img class='option-img' src="imgs/scissors.svg" alt="Scissors">
+      </div>
+    </div>
+    <div class="choiceDisplay">
+      <p>You picked <span class='user-pick'></span>, the computer picked <span class='computer-pick'></span>.</p>
+    </div>
+    <div class="u-alignCenter">
+      <h2 class='result'>???</h2>
+    </div>
+    <div class='score'>
+      <div class='score-title'>Score</div>
+      <h6 class='score-human'>Human: <span class='score-human-number'>0</span></h6>
+      <h6 class='score-computer'>Computer: <span class='score-computer-number'>0</span></h6>
+    </div>
+  </div>
+  <script>
+    //grab rock, paper, and scissor elements from the DOM and store them in variables
+    const rock = document.getElementsByClassName("option-rock")[0];
+    const paper = document.getElementsByClassName("option-paper")[0];
+    const scissors = document.getElementsByClassName("option-scissors")[0];
+
+    let humanScore = 0;
+    let computerScore = 0;
+    // console.log(rock, paper, scissors);
+
+    //associate those elements (which are our variables) to JavaScript events
+    const options = ['rock', 'paper', 'scissors']
+
+    rock.addEventListener('click', () => {
+      gameHandler('rock');
+    });
+
+    paper.addEventListener('click', () => {
+      gameHandler('paper')
+    });
+
+    scissors.addEventListener('click', () => {
+      gameHandler('scissors')
+    });
+
+      const gameHandler = (userChoice) => {
+        //generate a computer value
+        //randomly generated value -> use that as index number for our array
+        const randomNumber = Math.floor(Math.random() * 3);
+        const computerChoice = options[randomNumber];
+        //print on page the human value and the computer value
+        document.querySelector('.user-pick').textContent = userChoice;
+        document.querySelector('.computer-pick').textContent = computerChoice;
+
+        if(computerChoice===userChoice){
+          document.querySelector('.result').textContent = "It's a tie!";
+        }else if(userChoice==='rock'){
+          resolveForRock(computerChoice);
+        }else if(userChoice==='paper'){
+          resolveForPaper(computerChoice);
+        }else{
+          resolveForScissors(computerChoice);
+        }
+
+        document.querySelector('.score-human-number').innerHTML = humanScore;
+        document.querySelector('.score-computer-number').innerHTML = computerScore;
+
+        document.querySelector('.choiceDisplay').style.display = 'block';
+        document.querySelector('.result').style.display = 'block';
+      }
+
+    //print the result
+    //update the score
+      const resolveForRock = (computerChoice) =>{
+        if (computerChoice === "scissors") {
+          document.querySelector('.result').textContent = "You Win!";
+          humanScore++
+        } else {
+          document.querySelector('.result').textContent = "You Lose!";
+          computerScore++
+        }
+      }
+
+      const resolveForPaper = (computerChoice) => {
+          if (computerChoice === "rock") {
+            document.querySelector('.result').textContent = "You Win!";
+            humanScore++
+          } else {
+            document.querySelector('.result').textContent = "You Lose!";
+            computerScore++
+          }
+        }
+
+      const resolveForScissors = (computerChoice) => {
+          if (computerChoice === "paper") {
+            document.querySelector('.result').textContent = "You Win!";
+            humanScore++
+          } else {
+            document.querySelector('.result').textContent = "You Lose!";
+            computerScore++
+          }
+
+        }
+      
+    //we'll need to compare human value and computer value to determine winner
+    
+    //print the result
+    //update the score
+
+
+    //If you have an array use getElementsByClassName etc etc
+    //If you just want the first element of the array then you can use querySelector
+  </script>
+</body>
+</html>

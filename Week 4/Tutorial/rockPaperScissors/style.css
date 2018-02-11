@@ -1,0 +1,114 @@
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+.container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  max-width: 1050px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-alignCenter {
+  text-align: center;
+}
+
+.cta {
+  padding-bottom: 20px;
+  font-style: italic;
+}
+
+.option-wrapper {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.option {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 20px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.option-rock {
+  background-color: lightblue;
+}
+
+.option-paper {
+  background-color: tomato;
+}
+
+.option-scissors {
+  background-color: lightgreen;
+}
+
+.option-img {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  vertical-align: middle;
+}
+
+.choiceDisplay {
+  padding-bottom: 10px;
+  text-align: center;
+  display: none;
+}
+
+.user-pick,
+.computer-pick {
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 5px;
+}
+
+.result {
+  display:none;
+}
+
+.score {
+  font-size: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.score-title,
+.score-human,
+.score-computer {
+  display: inline-block;
+  line-height: 80px;
+  width: 33.33%;
+  font-size: 25px;
+  text-align: center;
+  margin: 0;
+}
+
+.score-title {
+  background-color: lavender;
+}
+
+.score-human {
+  background-color: antiquewhite;
+}
+
+.score-computer {
+  background-color: bisque;
+}

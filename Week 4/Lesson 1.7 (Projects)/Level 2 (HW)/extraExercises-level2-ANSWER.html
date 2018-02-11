@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project One</title>
+</head>
+<body>
+    <script>
+// --------------------------------------------
+        // LEVEL TWO
+
+        // Strings in common
+        // Write a function that takes in two arrays of any length, and reports on any values it found in common.If no common entries are found, it should return an appropriate value.
+        const stringsInCommon = (firstArr, secondArr) => {
+            const common = [];
+            // below I am using a ternary operator. It\'s like an if statement but in just one line! treat the "?" like the word if and the ":" as else.
+            let longerArr = firstArr >= secondArr ? firstArr : secondArr; // is the firstArr greater than or equal to the second ? if so give me the firstArr, : else (if not) then give me the secondArr
+            let shorterArr = firstArr <= secondArr ? firstArr : secondArr;
+            longerArr.map((item) => {
+                if (shorterArr.indexOf(item) >= 0) {
+                    common.push(item);
+                }
+            });
+            return common;
+        }
+
+        stringsInCommon(['do', 're', 'mi'], ['fa', 'so', 'la', 'ti', 'do']);
+        
+
+
+
+        // Get Factors
+        // Write a function that computes the factors of a positive integer.
+        // Output can be a string, an array, or an object, but NOT multiple output lines.
+        const isFactor = (number, factorToCheck) => {
+            if (number <= 0) {
+                return;
+            } 
+            if (number % factorToCheck === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        const getFactors = (number) => {
+            const factors = [];
+            for (let i = number; i >= 0; i--) {
+                if (isFactor(number, i)) {
+                    factors.push(i);
+                }
+            }
+            return factors;
+        }
+
+        getFactors(30);
+        // [1,2,3,5,6,10,15,30]
+
+
+
+
+        // Palindrome, or not ?
+        // Write a function that checks whether a particular string is a palindrome or not.Return either true or false depending on the result.Note: Your function should handle strings in a case -insensitive manner, and should ignore spaces and punctuation.
+        const isPalindrome = (string) => {
+            const check = string.split('');
+            const reverse = check.reverse().join('');
+            if (string === reverse) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        isPalindrome("avid diva"); 
+
+
+
+
+        // Fibonacci Sequence
+        // Create a function called fibonacci() that generates the first n numbers of the Fibonacci sequence.
+        const sum = (n1, n2) => {
+            return n1 + n2;
+        }
+        const fibonacci = (n) => {
+            let sequence = [0];
+            console.log(sequence[sequence.length - 2]);
+            for (let i = 0; i <= n; i++) {
+                // can use a ternary or an if statement:
+                // sequence.push(sum(sequence[sequence.length - 1], sequence[sequence.length - 2] != undefined ? sequence[sequence.length - 2] : 1));
+
+                if (sequence[sequence.length - 2] != undefined) {
+                    sequence.push(sum(sequence[sequence.length - 1], sequence[sequence.length - 2]));
+                } else {
+                    sequence.push(sum(sequence[sequence.length - 1], 1));
+                }
+            }
+            return sequence;
+        }
+
+        fibonacci(5);
+
+
+
+
+        // Number reverser
+        // Write a function that takes in a number and reverses it.
+        const reverser = (num) => {
+            const array = num.toString().split('');
+            const reversed = array.reverse().join('');
+            return reversed;
+        }
+
+        reverser(54321);
+
+
+
+
+        // A Case of Titles
+        // Create a function that takes a string as a parameter and converts the first letter of each word of the string in upper case.
+        // Bonus: Appropriately ignore all articles(a, the), prepositions(to, at, in, with), and coordinating conjunctions(and, but, or) as commonly left uncapitalized in titles.
+        const titleCase = (str) => {
+            let titleArr = str.split(" ");
+            const titled = titleArr.map((word) => {
+                if (word.length > 2 && word != 'but' && word != 'and' && word != 'with') {
+                    let wordArr = word.split('');
+                    wordArr.splice(0, 1, wordArr[0].toUpperCase());
+                    return wordArr.join('');
+                } else {
+                    return word;
+                }
+            });
+            return titled;
+        }
+
+        titleCase('this is a sentence with no if ands or buts');
+
+
+
+
+        // First non - repeated character
+        // Write a JavaScript function to find the first not repeated character.
+        const getFirstUniqueChar = (str) => {
+            const multiples = {};
+            let strLower = str.toLowerCase();
+            for (let i = 0; i < strLower.length; i++) {
+                // console.log(multiples[str[i]]);
+                if (multiples[strLower[i]] === undefined) {
+                    multiples[strLower[i]] = 1;
+                } else {
+                    multiples[strLower[i]] = multiples[strLower[i]] + 1
+                }
+            }
+            for (let letter in multiples) {
+                if (multiples[letter] === 1) {
+                    return letter; 
+                }
+            }
+        }
+        
+        getFirstUniqueChar('abacddbec');
+
+
+
+
+        // Is it prime ?
+        // Write a JavaScript function that takes a number as a parameter and checks whether the number is prime or not.
+        // Hint: A prime number is one that has no other positive factors between one and itself. So 5 is a prime number(it doesn’t divide by 2, 3, or 4), but 18 isn’t (it divides by 2, 3, 6, and 9).
+        const isPrime = (num) => {
+            const multiples = [];
+            for (let i = num - 1; i > 1; i--) {
+                if (num % i === 0) {
+                    multiples.push(i);
+                }
+            }
+            if (multiples.length > 0) {
+                return false;
+            }
+            return true;
+        }
+        isPrime(47);
+        isPrime(30);
+
+
+
+
+        // Factorial
+        // Write a function that takes in a number(n) parameter, and returns or logs the factorial of that number — or in other words, the product of all numbers from 1 to the number.
+        // For instance, if the user inputs the number five, the output would be the result of performing the operation 5 x 4 x 3 x 2 x 1, which is 120.
+        // this function used recursion. A recursive function, is a function that calls itself in its definition. let\'s walk through what is happening here:
+            // When we call factorial(5) the first thing we want to do is make sure this number is greater than 0. If it is, then we want the sum of the number passed in, 5 in our case, and one less the number passed in (4). The next thing we need to do though is get the sum of 4, and one less than that, 3. So we can call the factorial function on 4, then on three, and so on.  
+        const factorial = (num) => {
+            if (num > 0) {
+                return (num * factorial(num - 1));
+            }
+            return 1;
+        }
+        console.log(factorial(5));
+
+    </script>
+</body>
+</html>
