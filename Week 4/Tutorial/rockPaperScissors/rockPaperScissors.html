@@ -117,8 +117,12 @@
             document.querySelector('.result').textContent = "You Lose!";
             computerScore++
           }
-
         }
+
+        //can use this instead of document.querySelector etc etc
+      const printOnPage = (string, targetClass) => {
+        document.querySelector("."+targetClass).textContent = string;
+      }
       
     //we'll need to compare human value and computer value to determine winner
     
