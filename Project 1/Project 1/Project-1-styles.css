@@ -1,19 +1,94 @@
-body{
-    background: lightgray;
+*{
+    /* border: 1px blue solid; */
 }
 
-.countdownContainer{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    text-align: center;
-    background: #ddd;
-    border: 1px solid #999;
+body{
+    background: #525B76;
+    font-family: 'Dosis', sans-serif;
+    color: #525B76;
+    font-size: 0.8em;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+form{
+    /* position: absolute; */
+    font-size: 2em;
+    text-align: left;
+    background: #F8F8F8;
+    border: 1px solid #94C5CC;
     padding: 10px;
-    box-shadow: 0 0 5px 3px #ccc;
+    box-shadow: 0 0 5px 3px #94C5CC;
+    margin-top: 15%;
+    margin: 15% 0 2% 0;
+    padding: 1em;
+    font-weight: 300;
+}
+input{
+    font-size: 1em;
+    margin: .2em;
+    color: #94C5CC;
+}
+.countdownContainer{
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); */
+    text-align: center;
+    background: #F8F8F8;
+    border: 1px solid #94C5CC;
+    padding: 2em;
+    box-shadow: 0 0 5px 3px #94C5CC;
+}
+
+#displayTimerName{
+    background: #94C5CC;
+    border-radius: 0.5em;
+    border: 2px solid white;
+    box-shadow: 0 0 5px 3px #B4D2E7;
+}
+
+table{
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
+}
+/* text align */
+.right{
+    text-align: right;
+}
+.left{
+    text-align: left;
+}
+
+.red{
+    color: #E4572E;
 }
 
 .info{
-    font-size: 80px;
+    font-size: 5em;
+    word-wrap: break-word;
+}
+
+#cancel{
+    /* display: none; */
+    margin: 0 auto;
+    color: #E4572E;
+    margin-top: 10px;
+}
+
+.fa-hourglass-start{
+    margin-left: 20px;
+}
+
+.btn{
+    font-size: 20px !important;
+    border-radius: 5em;
+    box-shadow: 0 0 5px 3px #94C5CC;
+}
+
+
+#displayTimerName{
+    color: white;
 }

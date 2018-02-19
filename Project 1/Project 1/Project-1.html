@@ -3,34 +3,48 @@
 	<head>
 		<title>Project 1 - Countdown Timer</title>
 		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Dosis:400,500,600" rel="stylesheet">
 		<link rel="stylesheet" href="Project-1-styles.css">
 	</head>
 	<body>
 		<!-- name of countdown and due time -->
-		<form>
-			<label for="timerName">Timer: </label>
-			<input class="" type="text" id="timerName" placeholder="Break time">
-			<label for="timerLength">in</label>
-			<input class="" type="number" id="timerLength" placeholder="7"> minutes
-			<input type="submit" value="Set">
-		</form>
+		<div class="container">
+			<form>
+				<label for="timerName">Timer: </label>
+				<input class="" type="text" id="timerName" placeholder="Break time">
+				<label for="timerLength">in...</label>
+				<br>
+				<input class="" type="number" min="0" id="minutesInput" value="0" placeholder="5"> minutes
+				<input class="" type="number" min="0" id="secondsInput" value="0" placeholder="25"> seconds
+				<input class="btn" type="submit">
+			</form>
 
-		<p>current time:</p>
-		<h1 id="current-time">Loading</h1>
+			<table class="countdownContainer">
+				<tr class="info">
+					<td id="displayTimerName" colspan="2">Countdown Timer</td>
+				</tr>
+				<tr>
+					<td id="displaySassyRemark" colspan="2"></td>
+				</tr>
+				<tr class="info">
+					<td id="minutes" class="right">--</td>
+					<td id="seconds" class="left">--</td>
+				</tr>
+				<tr>
+					<td class="right">Minutes&nbsp;&nbsp;</td>
+					<td class="left">&nbsp;&nbsp;Seconds</td>
+				</tr>
+				<tr class="info">
+					<td id="completed" class="red" colspan="2"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button id="cancel" class="btn">Cancel</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 
-		<table class='countdownContainer'>
-			<tr class='info'>
-				<td colspan='4'>Countdown Timer</td>
-			</tr>
-			<tr class='info'>
-				<td id='minutes'>00</td>
-				<td id='seconds'>00</td>
-			</tr>
-			<tr>
-				<td>Minutes</td>
-				<td>Seconds</td>
-			</tr>
-		</table>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 		<script src="Project-1.js"></script>
