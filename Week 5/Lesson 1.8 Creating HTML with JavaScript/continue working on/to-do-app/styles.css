@@ -118,3 +118,10 @@ li span.done {
     background-size: 28px;
     background-position: left center;
 }
+
+  #error {
+    display: none;
+    background: rgba(228, 77, 72, 0.5);
+    font-weight: bold;
+    padding: 10px 15px;
+  }

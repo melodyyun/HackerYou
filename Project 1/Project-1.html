@@ -7,38 +7,41 @@
 		<link rel="stylesheet" href="Project-1-styles.css">
 	</head>
 	<body>
-		<!-- name of countdown and due time -->
 		<div class="container">
 			<form>
-				<label for="timerName">Timer: </label>
 				<input class="" type="text" id="timerName" placeholder="Break time">
 				<label for="timerLength">in...</label>
 				<br>
+				<input class="" type="number" min="0" id="hoursInput" value="0" placeholder="2"> hours
 				<input class="" type="number" min="0" id="minutesInput" value="0" placeholder="5"> minutes
 				<input class="" type="number" min="0" id="secondsInput" value="0" placeholder="25"> seconds
-				<input class="btn" type="submit">
+				<div>
+					<input class="btn" type="submit">
+				</div>
 			</form>
 
 			<table class="countdownContainer">
 				<tr class="info">
-					<td id="displayTimerName" colspan="2">Countdown Timer</td>
+					<td id="displayTimerName" colspan="3">Countdown Timer</td>
 				</tr>
 				<tr>
-					<td id="displaySassyRemark" colspan="2"></td>
+					<td id="displaySassyRemark" colspan="3"></td>
 				</tr>
 				<tr class="info">
-					<td id="minutes" class="right">--</td>
+					<td id="hours" class="right">--</td>
+					<td id="minutes" class="center">--</td>
 					<td id="seconds" class="left">--</td>
 				</tr>
 				<tr>
-					<td class="right">Minutes&nbsp;&nbsp;</td>
-					<td class="left">&nbsp;&nbsp;Seconds</td>
+					<td class="right">Hours</td>
+					<td class="center">Minutes</td>
+					<td class="left">Seconds</td>
 				</tr>
 				<tr class="info">
-					<td id="completed" class="red" colspan="2"></td>
+					<td id="completed" class="red" colspan="3"></td>
 				</tr>
 				<tr>
-					<td colspan="2">
+					<td colspan="3">
 						<button id="cancel" class="btn">Cancel</button>
 					</td>
 				</tr>

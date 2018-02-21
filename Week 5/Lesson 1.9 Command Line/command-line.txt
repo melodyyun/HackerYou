@@ -1,0 +1,27 @@
+Mac Command Line
+:wq -> exit
+sudo -> super user do
+cd -> change directory (folder)
+cd .. -> go up a directory
+ls -> listing of files
+cd + tab -> to autocomplete file names
+pwd -> print working directory (find where you are now)
+mkdir -> make directory
+touch -> create new file (eg. touch index.html)
+&& -> use two commands at once
+rm -> remove file (GONE FOREVER)
+rm -r -> remove folder and everything in it
+mv -> move (mv file folder)
+cp -> copy (cp file folder)
+
+Windows Command Line
+cmd -> change directory
+dir -> listing of files
+
+GitHub commands
+git clone url -> create new directory
+git status
+git add file name or git add -A (add all)
+git commit -m "comment"
+git push 
+git pull

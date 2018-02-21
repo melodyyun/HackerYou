@@ -5,6 +5,8 @@
 // $(function(){...});
 
 $(document).ready(function () {
+    //auto focus upon page load
+    $('input[type=text').focus();
 
  //---------------------
 //EVENT LISTENER SUBMIT
@@ -17,12 +19,14 @@ $(document).ready(function () {
 
         const $input = $('input[type=text]');//use $name for jQuery 
 
+        
         const todo = $input.val(); // saving string that was typed when submit is fired
         // console.log(todo); // check to make sure the string is saved
 
         //only add item to list if variable is not empty
         //if not empty add to list (ul)
-        if(todo.length > 0){ // BONUS what to do if people add spaces
+        console.log(todo.trim());
+        if(todo.length > 0 && todo.trim !== ""){ // BONUS what to do if people add spaces
             //create variable that holds new HTML
             const item = `
                 <li>
@@ -34,7 +38,11 @@ $(document).ready(function () {
             //clear text inside input after submit is clicked
             $input.val('');
             // this.reset(); //vanilla JavaScript way of resetting
+        }else{
+            //show error message 
+            $('#error').show();
         }
+        $('ul').sortable();
     });
 
 //----------------------------------
@@ -61,4 +69,5 @@ $(document).ready(function () {
         //grab li and remove it from the list
         $(this).parent().remove();
     });
+    
 });
