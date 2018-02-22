@@ -1,4 +1,6 @@
+//------------------
 //Strings in common
+//------------------
 //Write a function that takes in two arrays of any length, and reports on any values it found in common. If no common entries are found, it should return an appropriate value.
 
 const stringsInCommon = (array1, array2) => {
@@ -6,6 +8,39 @@ const stringsInCommon = (array1, array2) => {
     const a2IsArray = Array.isArray(array2);
     if( !a1IsArray && !a2IsArray){
         return false;
+    }else{
+        array1.forEach(function (item1) {
+            array2.forEach(function (item2) {
+                if(item1 === item2){
+                    console.log(item1);
+                }
+            });
+        });
+    }
+}
+
+// stringsInCommon(['do', 're', 'mi'], ['fa', 'so', 'la', 'ti', 'do'])
+// // ['do']
+
+// const animals = ['cow', 'deer', 'goat', 'chicken', 'pig', 'fish']
+// const meats = ['chicken', 'beef', 'fish', 'pork'];
+// stringsInCommon(animals, meats)
+// // ['chicken','fish']
+
+// stringsInCommon(['tinker', 'tailor', 'soldier', 'spy'], ['john', 'ringo', 'george', 'paul'])
+// // []
+
+//-------------
+//Get Factors
+//-------------
+
+//Write a function that computes the factors of a positive integer.
+// Output can be a string, an array, or an object, but NOT multiple output lines.
+const getFactors=(num)=>{
+    for(i=0; i<num; i++){
+        if((i%num) === 0){
+            console.log(i);
+        }
     }
 }
 
@@ -59,10 +94,5 @@ const factorial = (num) => {
         return 1;
     }
 }
-
-getFactors(30);
-// [1,2,3,5,6,10,15,30]
-getFactors(1);
-// [1]
-getFactors(37);
-// [1,37]
+factorial(6)
+// 720
