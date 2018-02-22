@@ -1,7 +1,3 @@
-*{
-    /* border: 1px blue solid; */
-}
-
 body{
     background: #525B76;
     font-family: 'Dosis', sans-serif;
@@ -13,7 +9,6 @@ body{
     margin: 0 auto;
 }
 form{
-    /* position: absolute; */
     font-size: 2em;
     text-align: left;
     background: #F8F8F8;
@@ -31,10 +26,6 @@ input{
     color: #94C5CC;
 }
 .countdownContainer{
-    /* position: absolute; */
-    /* top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%); */
     text-align: center;
     background: #F8F8F8;
     border: 1px solid #94C5CC;
@@ -47,6 +38,7 @@ input{
     border-radius: 0.5em;
     border: 2px solid white;
     box-shadow: 0 0 5px 3px #B4D2E7;
+    min-width: 200px;
 }
 
 table{
@@ -71,7 +63,6 @@ table{
 
 .info{
     font-size: 5em;
-    word-wrap: break-word;
 }
 
 #cancel{

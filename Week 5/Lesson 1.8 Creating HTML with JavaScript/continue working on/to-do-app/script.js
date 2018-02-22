@@ -58,6 +58,7 @@ $(document).ready(function () {
         $(this).toggleClass('completed'); //li wouldn't work because it will select all the li(s)
         //this refers to the li we clicked on
         $(this).find('.check').toggleClass('todo done');
+        $('this').appendTo($('ul'));
     });
 
 //----------------------------------
