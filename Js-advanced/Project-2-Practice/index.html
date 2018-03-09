@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Light the 6ix</title>
+	<link rel="stylesheet" href="public/styles/style.css">
+	<!-- Load the Paper.js library -->
+	<script type="text/javascript" src="/dev/scripts/paper-full.js"></script>
+	<!-- Define inlined PaperScript associate it with myCanvas -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
+</head>
+<body>
+
+	<h1 id="instruction">Press A-Z to light the world</h1>
+	<form>
+		<label for="colors">Choose your palette</label>
+		<select name="colors" id="colors">
+			<option value="bubblegumParty">Bubblegum Party</option>
+			<option value="lakeSuperiorWinter">Lake Superior Winter</option>
+			<option value="soothingPastel">Soothing Pastel</option>
+			<option value="violetWoods">Violet Woods</option>
+		</select>
+	</form>
+
+	<canvas id="myCanvas" resize></canvas>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="public/scripts/main.js"></script>
+	<script type="text/paperscript" src="myPaperscript.js" canvas="myCanvas"></script>
+</body>
+</html>
