@@ -69,11 +69,25 @@
 
         console.log(total);
 
+        //----------------
+        //organizing code
+        //----------------
 
-        const add = (a, b) =>{
-            return a + b
-        };
+        //function must be defined before being called
+        //init is second last (calls the function)
+        //document ready is last
 
+        //----------------------------------------
+        // when to pass an argument to a function
+        //----------------------------------------
+
+        const add = (a,b,c=0) => {
+            return num1 + num2 + num3;
+        }
+
+        const total = add(4,5);
+        const newTotal = add(5,7);
+        const threeTotal = add(2,3,4);
         
     </script>
 </body>
