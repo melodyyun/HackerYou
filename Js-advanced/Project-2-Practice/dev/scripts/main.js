@@ -1,18 +1,116 @@
+const cabinApp = {};
+
+cabinApp.cabin = {
+    bigCabin: [
+        {
+            title: 'Hawthorn House',
+            unique: true,
+            src: 'pics/cabin-big-unique-1.jpg',
+            alt: 'Hawthorn Cabin',
+        },
+        {
+            title: 'Spruce Den',
+            unique: true,
+            src: 'pics/cabin-big-unique-2.jpg',
+            alt: 'Spruce Den Cabin',
+        },
+        {
+            title: 'Moondance Place',
+            unique: true,
+            src: 'pics/cabin-big-unique-3.jpg',
+            alt: 'Moondance Cabin',
+        },
+        {
+            title: 'The Bunker',
+            unique: true,
+            src: 'pics/cabin-big-unique-4.jpg',
+            alt: 'Bunker Cabin',
+        },
+        {
+            title: 'Hickory Haven',
+            unique: false,
+            src: 'pics/cabin-big-traditional-1.jpg',
+            alt: 'Hickory Haven Cabin',
+        },
+        {
+            title: 'Cedar Retreat',
+            unique: false,
+            src: 'pics/cabin-big-traditional-2.jpg',
+            alt: 'Cedar Retreat Cabin',
+        },
+        {
+            title: 'Ponderosa Villa',
+            unique: false,
+            src: 'pics/cabin-big-traditional-3.jpg',
+            alt: 'Ponderosa Cabin',
+        },
+        {
+            title: 'Laurel Pines',
+            unique: false,
+            src: 'pics/cabin-big-traditional-4.jpg',
+            alt: 'Laurel Pines Cabin',
+        },
+    ],
+    smallCabin: [
+        {
+            title: 'Sage Cottage',
+            unique: true,
+            src: 'pics/cabin-small-unique-1.jpg',
+            alt: 'Sage Cabin',
+        },
+        {
+            title: 'Timber Trailer',
+            unique: true,
+            src: 'pics/cabin-small-unique-2.jpg',
+            alt: 'Timber Falls Cabin',
+        },
+        {
+            title: 'Aspen House',
+            unique: true,
+            src: 'pics/cabin-small-unique-3.jpg',
+            alt: 'Aspen Cabin',
+        },
+        {
+            title: 'Ironwood Perch',
+            unique: true,
+            src: 'pics/cabin-small-unique-4.jpg',
+            alt: 'Ironwood Perch Cabin',
+        },
+        {
+            title: 'Shiver Alpine Den',
+            unique: false,
+            src: 'pics/cabin-small-traditional-1.jpg',
+            alt: 'Shiver Alpine Cabin',
+        },
+        {
+            title: 'Totem Crest Hut',
+            unique: false,
+            src: 'pics/cabin-small-traditional-2.jpg',
+            alt: 'Totem Crest Cabin',
+        },
+        {
+            title: 'Arrowhead Cottage',
+            unique: false,
+            src: 'pics/cabin-small-traditional-3.jpg',
+            alt: 'Arrowhead Cabin',
+        },
+        {
+            title: 'Harmony Shack',
+            unique: false,
+            src: 'pics/cabin-small-traditional-4.jpg',
+            alt: 'Harmony Cabin',
+        },
+    ],
+};
+
 //------------------
 //Re size canvas
 //------------------
-
-const canvas = $('canvas');
-console.log(canvas);
-canvas.width = window.innerWidth;
-canvas.height = window.innerWidth;
-
-// const c = canvas.getContext('2d');
-
-// //square
-// c.fillRect(100, 100, 100, 100);
-
-
+cabinApp.canvasSize = () =>{
+    const canvas = $('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerWidth;
+}
 
 //------------------------
 //Sound data + color data
@@ -178,5 +276,81 @@ const keyData = {
         color: '#2c3e50'
     }
 }
+// //-------------
+// //file loader
+// //-------------
+// themeApp.changeCanvas = (canvasID) =>{
+//     $('canvas').attr("id", canvasID);
+// }
+//-------------------
+//change instruction
+//-------------------
+// themeApp.changeInstruction = (text) =>{
+//     $('#instruction').text(text);
+// };
 
-  
+//--------------
+// change theme
+//--------------
+
+// themeApp.changeTheme = (userInput) =>{
+//     if (userInput === 'snow'){
+//         context.clearRect(0, 0, canvas.width, canvas.height);
+//         console.log('snow');
+//         themeApp.changeInstruction('Let it snow');
+//         themeApp.changeCanvas('snowCanvas');
+//     }else if (userInput === 'space'){
+//         context.clearRect(0, 0, canvas.width, canvas.height);
+//         console.log('space');
+//         themeApp.changeInstruction('SPAAAAACCCEEE!!!!');
+//         themeApp.changeCanvas('spaceCanvas');
+//     }else{
+//         console.log('color');
+//         context.clearRect(0, 0, canvas.width, canvas.height);
+//         themeApp.changeInstruction('Press ↓');
+//         themeApp.changeCanvas('myCanvas');
+//     }
+// }
+
+// cabinApp.randomNum = (maxNum) => {
+//     return Math.floor(Math.random() * (maxNum + 1));
+// };
+
+cabinApp.displayCabin = (cabin) => {
+    console.log(cabin);
+    $('#result').append(`
+    <div class='cabinImg'>
+        <h1>${cabin.title}<h1>
+        <img src='${cabin.src}' alt='${cabin.alt}'>
+    </div>
+    `);
+};
+
+cabinApp.choice = (userInput1, userInput2) => {
+    const cabinSizeChoice = cabinApp.cabin[userInput1];
+    const cabinUniqChoice = cabinSizeChoice.filter((res) => {
+        if (res.unique == userInput2) {
+            cabinApp.displayCabin(res);
+            return res;
+        };
+    });
+};
+
+cabinApp.init = () =>{
+    cabinApp.canvasSize();
+    $('input[type=text]').focus();
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        $('#result').empty();
+        $('#instruction').fadeOut();
+        $('#inspiration').fadeIn();
+        const cabinSize =  $('input[name=size]:checked').val();
+        const unique = $.parseJSON($('input[name=uniqueness]:checked').val());
+        cabinApp.choice(cabinSize, unique);
+    });
+
+};
+
+$(function () {
+    cabinApp.init();
+});

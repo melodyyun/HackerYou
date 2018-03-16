@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Geolocation</title>
+  <style>
+  	.map{
+  		width: 100%;
+  		height: 300px;
+  	}
+  </style>
+</head>
+<body>
+
+	<div>
+		<h1>You are here!</h1>
+		<p>Latitude: <span id="latitude"></span></p>
+		<p>Longitude: <span id="longitude"></span></p>
+		<p>Accuracy: <span id="accuracy"></span></p>
+		
+	</div>
+	
+	<div id="map" class="map">
+		
+	</div>
+	
+	<!-- loading in jQuery -->
+	<script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+
+	<!-- loading in google maps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0ayOHbaNI7U1eVmVPdbxNNHOmOBgJrX8" type="text/javascript"></script>
+
+	<!-- main JS -->
+  	<script>
+  	//google maps api key: AIzaSyB0ayOHbaNI7U1eVmVPdbxNNHOmOBgJrX8
+
+  	//use https for geolocation
+  	//must make sure website is secure
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position);
+
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const accuracy = position.coords.accuracy
+
+      $('#latitude').append(latitude);
+      $('#longitude').append(longitude);
+      $('#accuracy').append(accuracy);
+
+      app.loadMap(latitude, longitude);
+      app.marker(); // need to call app.marker after every load map for marker to show up
+
+    });
+
+    const app = {};
+
+    app.key = 'AIzaSyB0ayOHbaNI7U1eVmVPdbxNNHOmOBgJrX8';
+
+    app.styles = [
+	    {
+	        "featureType": "administrative",
+	        "elementType": "labels.text.fill",
+	        "stylers": [
+	            {
+	                "color": "#444444"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "landscape",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "color": "#f2f2f2"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "poi",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "visibility": "off"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "road",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "saturation": -100
+	            },
+	            {
+	                "lightness": 45
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "road.highway",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "visibility": "simplified"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "road.arterial",
+	        "elementType": "labels.icon",
+	        "stylers": [
+	            {
+	                "visibility": "off"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "transit",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "visibility": "off"
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "water",
+	        "elementType": "all",
+	        "stylers": [
+	            {
+	                "color": "#2985ab"
+	            },
+	            {
+	                "visibility": "on"
+	            }
+	        ]
+	    }
+	];
+
+	app.marker = () => {
+		const cnTower = new google.maps.Marker({
+			position: new google.maps.LatLng(43.6425662,-79.3892455),
+			map: app.map,
+			icon: `http://vanessasbees.com/assets/small-logo.png`
+		});
+
+		const infowindow = new google.maps.InfoWindow();
+		google.maps.event.addListener(cnTower, 'click', function(){
+			infowindow.setContent('This is the CN Tower');
+			infowindow.open(app.map, cnTower);
+		});
+
+		const home = new google.maps.Marker({
+			position: new google.maps.LatLng(43.5797692,-79.6593988),
+			map: app.map,
+			icon: `http://vanessasbees.com/assets/small-logo.png`
+		});
+
+		const infowindow2 = new google.maps.InfoWindow();
+		google.maps.event.addListener(home, 'mouseover', function(){
+			infowindow.setContent(`Melody's House`);
+			infowindow.open(app.map, home);
+		});
+	};
+
+    app.loadMap = (lat = 43.653226, lng = -79.38318429999998) => {
+    	const mapOptions = {
+    		center: {
+    			//ES6 if variable and property are the same you only need to put one
+    			//eg lat: lat, => lat,
+    			lat, //lat: lat,
+    			lng  //lng: lng
+    		},
+    		zoom: 10, 
+    		styles: app.styles
+    		// 0 is furthest
+    		// 8 is average
+    		// 20 is closest
+    	}
+
+    const mapDiv = $('.map')[0];
+
+    app.map = new google.maps.Map(mapDiv, mapOptions);
+
+    };
+
+    $(function(){
+    	app.loadMap();
+    	app.marker();
+    });
+
+  </script>
+  
+</body>
+</html>
