@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Project 2</title>
+	<link rel="stylesheet" href="public/styles/style.css">
+	<!-- Load the Paper.js library -->
+	<script type="text/javascript" src="/dev/scripts/paper-full.js"></script>
+	<!-- Load the Howler.js library -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="formContainer">
+			<form id="cabinSearch" action="">
+				<div>
+					<h1>Choose your cabin</h1>
+				</div>
+				<div class="col2-grid">
+					<label class="question" for="size">Size of Cabin</label>
+					<div>
+						<input type="radio" name="size" id="big" value="bigCabin" required>
+						<label for="big">Large</label>
+						<input type="radio" name="size" id="small" value="smallCabin" required>
+						<label for="small">Small</label>
+					</div>
+					<label class="question" for="uniqueness">Something different?</label>
+					<div>
+						<input type="radio" name="uniqueness" id="unique" required value=true>
+						<label for="unique">Unique</label>
+						<input type="radio" name="uniqueness" id="traditional" required value=false>
+						<label for="traditional">Traditional</label>
+					</div>
+				</div>
+				<!-- <div>
+					<label for="themes">Theme</label>
+					<select name="themes" id="themes">
+						<option value="color">Color Party</option>
+						<option value="snow">Winter Wonderland</option>
+						<option value="space">Space Jam</option>
+					</select>
+				</div> -->
+				<input type="submit" value="Cabin Dream">
+			</form>
+			<button class="hide">▼</button>
+		</div>
+
+		<h1 id="instruction">Your dream cabin awaits...</h1>
+
+		<form id="name" action="" class="hide formContainer">
+			<div>
+				<label for="name">Name: </label>
+				<input type="text" placeholder="Your Cabin Name">
+			</div>
+		</form>
+
+		<div id="result"></div>
+
+		<div id="inspiration" class="hide">
+			<a href="http://cabinporn.com" target="_blank"><img src="pics/cabin-logo.png" alt="Cabin logo"></a>
+			<a href="http://cabinporn.com" target="_blank"><p>Learn more</p></a>
+		</div>
+	</div>
+
+
+	<canvas id="myCanvas" resize></canvas>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="public/scripts/main.js"></script>
+	<script type="text/paperscript" src="myPaperscript.js" canvas="myCanvas"></script>
+	<!-- <script type="text/paperscript" src="snow.js" canvas="snowCanvas"></script>
+	<script type="text/paperscript" src="space.js" canvas="spaceCanvas"></script> -->
+</body>
+</html>
