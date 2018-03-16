@@ -295,12 +295,11 @@ var keyData = {
     //     }
     // }
 
-    // cabinApp.randomNum = (maxNum) => {
-    //     return Math.floor(Math.random() * (maxNum + 1));
-    // };
+};cabinApp.randomNum = function (maxNum) {
+    return Math.floor(Math.random() * (maxNum + 1));
+};
 
-};cabinApp.displayCabin = function (cabin) {
-    console.log(cabin);
+cabinApp.displayCabin = function (cabin) {
     $('#result').append('\n    <div class=\'cabinImg\'>\n        <h1>' + cabin.title + '<h1>\n        <img src=\'' + cabin.src + '\' alt=\'' + cabin.alt + '\'>\n    </div>\n    ');
 };
 
@@ -308,10 +307,12 @@ cabinApp.choice = function (userInput1, userInput2) {
     var cabinSizeChoice = cabinApp.cabin[userInput1];
     var cabinUniqChoice = cabinSizeChoice.filter(function (res) {
         if (res.unique == userInput2) {
-            cabinApp.displayCabin(res);
             return res;
         };
     });
+    var randomCabinNum = cabinApp.randomNum(cabinUniqChoice.length);
+    var finalCabin = cabinUniqChoice[randomCabinNum];
+    cabinApp.displayCabin(finalCabin);
 };
 
 cabinApp.init = function () {

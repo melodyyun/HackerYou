@@ -2,6 +2,10 @@
 //array of all the circles being created on key down
 var circles = [];
 
+// function randomNum() {
+//     return Math.floor(Math.random) * 
+// }
+
 //----------------
 //Key Press event
 //----------------

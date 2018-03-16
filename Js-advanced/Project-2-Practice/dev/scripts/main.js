@@ -312,28 +312,30 @@ const keyData = {
 //     }
 // }
 
-// cabinApp.randomNum = (maxNum) => {
-//     return Math.floor(Math.random() * (maxNum + 1));
-// };
+cabinApp.randomNum = (maxNum) => {
+    return Math.floor(Math.random() * (maxNum + 1));
+};
 
 cabinApp.displayCabin = (cabin) => {
-    console.log(cabin);
     $('#result').append(`
     <div class='cabinImg'>
         <h1>${cabin.title}<h1>
         <img src='${cabin.src}' alt='${cabin.alt}'>
     </div>
     `);
+    
 };
 
 cabinApp.choice = (userInput1, userInput2) => {
     const cabinSizeChoice = cabinApp.cabin[userInput1];
     const cabinUniqChoice = cabinSizeChoice.filter((res) => {
         if (res.unique == userInput2) {
-            cabinApp.displayCabin(res);
             return res;
         };
     });
+    const randomCabinNum = cabinApp.randomNum(cabinUniqChoice.length);
+    let finalCabin = cabinUniqChoice[randomCabinNum];
+    cabinApp.displayCabin(finalCabin);
 };
 
 cabinApp.init = () =>{

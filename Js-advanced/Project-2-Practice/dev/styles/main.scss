@@ -9,19 +9,14 @@
 //dark blue:    #5c868d	(92,134,141)
 //dark red:     #5c3d46	(92,61,70)
 
-*{
-	// border: 1px solid aquamarine;
-}
+// *{
+ 	// border: 1px solid aquamarine;
+// }
+
 body, html{
 	height: 100%;
 	margin: 0;
 	min-width: 320px;
-	// overflow: hidden;
-	// background: url(Toronto-map.png) no-repeat center center fixed; 
-  	// -webkit-background-size: cover;
-  	// -moz-background-size: cover;
-  	// -o-background-size: cover;
-	// background-size: contain;
 	animation:myfirst 10s;
     
 	-moz-animation-iteration-count: infinite;
@@ -63,11 +58,7 @@ canvas{
 
 #instruction{
 	color: 	#5c868d;
-	z-index: 1;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	text-align: center;
 }
 
 .container{
@@ -95,7 +86,6 @@ form{
 
 .question{
 	display: inline-block;
-	width: 250px;
 	color: #426066;
 	text-align: left;
 }
