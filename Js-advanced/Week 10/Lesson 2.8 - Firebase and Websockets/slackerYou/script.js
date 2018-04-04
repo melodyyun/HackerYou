@@ -1,15 +1,27 @@
 const chatApp ={};
 
 chatApp.config = () => {
-    //firebase initialization
-    const config = {
-        apiKey: "AIzaSyBSw1TSiBh2DHhREDPxl4yJMX5Q2907YU0",
-        authDomain: "slackeryou-a6638.firebaseapp.com",
-        databaseURL: "https://slackeryou-a6638.firebaseio.com",
-        projectId: "slackeryou-a6638",
-        storageBucket: "",
-        messagingSenderId: "1077760232539"
+    // Initialize Firebase
+    //personal version
+    var config = {
+        apiKey: "AIzaSyBCjABuY-DxtIrM86Xl9W40bPux07Wzzw8",
+        authDomain: "melody-chat.firebaseapp.com",
+        databaseURL: "https://melody-chat.firebaseio.com",
+        projectId: "melody-chat",
+        storageBucket: "melody-chat.appspot.com",
+        messagingSenderId: "1066902135366"
     };
+    //class version
+    // firebase.initializeApp(config);
+    // //firebase initialization
+    // const config = {
+    //     apiKey: "AIzaSyBSw1TSiBh2DHhREDPxl4yJMX5Q2907YU0",
+    //     authDomain: "slackeryou-a6638.firebaseapp.com",
+    //     databaseURL: "https://slackeryou-a6638.firebaseio.com",
+    //     projectId: "slackeryou-a6638",
+    //     storageBucket: "",
+    //     messagingSenderId: "1077760232539"
+    // };
     firebase.initializeApp(config);
     //console.log(firebase); //use to see all methods in firebase
     //getting reference to firebase database
@@ -30,7 +42,6 @@ chatApp.getWeather = () => {
 };
 
 chatApp.init = () => {
-    chatApp.getWeather();
 
     // ADD MESSAGE CODE
     //------------------
@@ -100,12 +111,7 @@ $(function () {
     //init will have all the event handlers
     chatApp.init();
 });
-//form submit
-    //add msg to msg list && add to firebase
-    //tell firebase to tell us when database has changed
 
-//listen for click on remove button
-    //tell firebase to delete a message
 
 //---------------
 // My Firebase

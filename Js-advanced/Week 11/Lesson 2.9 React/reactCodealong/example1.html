@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="inventory"></div>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <script>
+        const inventory = [
+            {
+                name: 'socks',
+                stock: 2
+            },
+            {
+                name: 'shirts',
+                stock: 1
+            },
+            {
+                name: 'shorts',
+                stock: 4
+            }
+        ]
+
+        inventory.forEach((item) => {
+            let itemName = $('<h2>').text(item.name);
+            let stock = $('<p>').text(item.stock);
+            let inventoryContainer = $('<div>').append(itemName).append(stock);
+            $('#inventory').append(inventoryContainer);
+        });
+    </script>
+</body>
+</html>
