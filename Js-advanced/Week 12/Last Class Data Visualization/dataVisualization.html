@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>c3 example!</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.min.css">
+	<style>
+		div{
+			width:100%;
+			min-height: 400px;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="chart"></div>
+
+	<!-- lpading in d3: -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>	
+	<!-- loading in c3: -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.18/c3.js"></script>
+
+	<script>
+		const chart = c3.generate({
+			bindto: '#chart',
+			data: {
+				// columns: [
+				// 	['column1', 5, 9, 5, 14],
+				// 	['column2', 489, 399, 34, 900]
+				// ],
+				// rows: [
+				// 	['row1', 49, 22, 909, 323];
+				// ]
+
+				json:[
+					{name:'root beer', votes: 9},
+					{name:'gingerale', votes: 15},
+					{name:'coke', votes: 8},
+					{name:'orange crush', votes: 5}
+				],
+				keys: {
+					value: ['name', 'votes'],
+					x: 'name'
+				},
+				type: 'bar',
+				color: {
+					pattern: ["#F8F8F8"],
+				}
+			},
+			axis: {
+				x:{type: 'category'}
+			}
+
+		});
+	</script>
+
+
+</body>
+</html>
